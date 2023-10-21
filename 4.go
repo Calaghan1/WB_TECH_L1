@@ -22,7 +22,7 @@ func (w *Worcker)listen(ch chan int) {
 	}
 }
 
-func main() {
+func Exercise_4() {
 	var i = 0
 	arr := make([]Worcker, 0, 3)
 	for i < 10 {

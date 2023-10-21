@@ -11,7 +11,7 @@ func calculateSquare(num int, wg *sync.WaitGroup, sum *int) {
 	*sum += square
 }
 
-func main() {
+func Exercise_3() {
 	nums := []int{2, 4, 6, 8, 10}
 	var sum int
 	var wg sync.WaitGroup
