@@ -1,0 +1,25 @@
+// Разработать программу, которая переворачивает подаваемую на ход строку (например: «главрыба — абырвалг»). Символы могут быть unicode.
+
+package main
+
+import (
+	"fmt"
+)
+
+func reverse(input string) string {
+	runes := []rune(input)
+	length := len(runes)
+
+	for i, j := 0, length-1; i < j; i, j = i+1, j-1 {
+		runes[i], runes[j] = runes[j], runes[i]
+	}
+
+	return string(runes)
+}
+
+func Exercise_19() {
+	str := "главрыба — абырвалг"
+	reversed := reverse(str)
+	fmt.Printf("Исходная строка: %s\n", str)
+	fmt.Printf("Перевернутая строка: %s\n", reversed)
+}
