@@ -4,7 +4,7 @@ package main
 
 import "fmt"
 
-func Exercise_23() {
+func main() {
     // Исходный слайс
     numbers := []int{1, 2, 3, 4, 5}
 

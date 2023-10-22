@@ -24,7 +24,7 @@ func (p Point) DistanceTo(other Point) float64 {
 	return math.Sqrt(dx*dx + dy*dy)
 }
 
-func Exercise_24() {
+func main() {
 	// Создание двух точек
 	point1 := NewPoint(1.0, 2.0)
 	point2 := NewPoint(4.0, 6.0)

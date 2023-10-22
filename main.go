@@ -4,8 +4,10 @@ import "fmt"
 
 func main() {
 	var n int
-	fmt.Scanf("%d", &n)
-
+	
+	for n >= 0 {
+		fmt.Println("Введите номер задания")
+		fmt.Scanf("%d", &n)
 	switch n {
 	case 1:
 		Exercise_1()
@@ -35,5 +37,31 @@ func main() {
 		Exercise_13()
 	case 14:
 		Exercise_14()
+	case 15:
+		Exercise_15()
+	case 16:
+		Exercise_16()
+	case 17:
+		Exercise_17()
+	case 18:
+		Exercise_18()
+	case 19:
+		Exercise_19()
+	case 20:
+		Exercise_20()
+	case 21:
+		Exercise_21()
+	case 22:
+		Exercise_22()
+	case 23:
+		Exercise_23()
+	case 24:
+		Exercise_24()
+	case 25:
+		Exercise_25()
+	case 26:
+		Exercise_26()
 }
+	n = 0
+	}
 }

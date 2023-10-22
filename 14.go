@@ -8,21 +8,10 @@ import (
 )
 
 func getType(value interface{}) string {
-	switch reflect.TypeOf(value).Kind() {
-	case reflect.String:
-		return "string"
-	case reflect.Int:
-		return "int"
-	case reflect.Bool:
-		return "bool"
-	case reflect.Chan:
-		return "channel"
-	default:
-		return "unknown"
-	}
+	return reflect.TypeOf(value).String()
 }
 
-func Exercise_14() {
+func main() {
 	var val interface{}
 
 	val = "Hello, World"
@@ -38,7 +27,6 @@ func Exercise_14() {
 	val = ch
 	fmt.Printf("Type of variable: %s\n", getType(val))
 
-	// Adding a custom type
 	type CustomType struct{}
 	val = CustomType{}
 	fmt.Printf("Type of variable: %s\n", getType(val))

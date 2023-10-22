@@ -17,7 +17,7 @@ type Action struct {
 	Human
 }
 	
-func Exercise_1() {
+func main() {
 	a := Action{Human{"Max", 3}}
 	h := Human{"David", 2}
 	h.Talk()

@@ -4,11 +4,14 @@ package main
 
 import "fmt"
 
-func Exercise_12(){
+func main(){
 	elements := []string{"cat", "cat", "dog", "cat", "tree"}
 	set := make(map[string]bool)
 	for _, element := range elements {
-        set[element] = true
+		if element == "cat" || element == "dog"{
+			set[element] = true
+		}	
+        
     }
 	fmt.Println(set)
 }

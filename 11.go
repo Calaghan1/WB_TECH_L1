@@ -1,12 +1,14 @@
 // Реализовать пересечение двух неупорядоченных множеств.
 package main
+//Реализовать пересечение двух неупорядоченных множеств.
+
 
 import (
 	"fmt"
 	"math/rand"
 )
 
-func Exercise_11() {
+func main() {
 	set1 := make(map[int]bool)
 	set2 := make(map[int]bool)
 	i := 0
@@ -15,7 +17,8 @@ func Exercise_11() {
 		set1[rand.Intn(10)] = true
 		set2[rand.Intn(10)] = true
 	}
-
+	fmt.Println("SET1:", set1)
+	fmt.Println("SET2:", set2)
 	set3 := make(map[int]bool)
 
 	for item := range set1 {
@@ -23,7 +26,5 @@ func Exercise_11() {
 			set3[item] = true
 		}
 	}
-	for item := range set3 {
-		fmt.Println(item)
-	}
+	fmt.Println("Пересечения:", set3)
 }

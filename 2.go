@@ -10,7 +10,7 @@ func calculateSquare_1(num int, wg *sync.WaitGroup, resultChan chan int) {
 	resultChan <- square
 }
 
-func Exercise_2() {
+func main() {
 	nums := []int{2, 4, 6, 8, 10}
 	resultChan := make(chan int, len(nums))
 	var wg sync.WaitGroup

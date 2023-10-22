@@ -7,11 +7,11 @@ import (
 	"sort"
 )
 
-func Exercise_10() {
+func main() {
 	groups := make(map[int][]float64)
 	temperatures := []float64{-25.4, -27.0, 13.0, 19.0, 15.5, 24.5, -21.0, 32.5}
 	for _, i := range temperatures {
-		groups[int(i/10) * 10] = append(groups[int(i/10)*10], i)
+		groups[int(i/10) * 10] = append(groups[int(i/10)*10], i) // Ключом являются температуры округленные до десятков а значениями массив чисел которые имеют такое окргуление
 	}
 	for group, tmp := range groups {
 		sort.Float64s(tmp)

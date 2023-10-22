@@ -1,35 +1,54 @@
 // Разработать программу, которая будет последовательно отправлять значения в канал,
 //  а с другой стороны канала — читать. По истечению N секунд программа должна завершаться.
 
-
 package main
+
 import (
-	"time"
 	"fmt"
+	"sync"
+	"time"
 )
-func Exercise_5() {
+func main() {
 	// Создаем канал для обмена данными
 	ch := make(chan int)
-
+	var wg sync.WaitGroup
 	// Запускаем горутину для чтения из канала
+	var t int
+	fmt.Println("Сколько секунд работаем?")
+	fmt.Scanf("%d\n", &t)
+	wg.Add(1)
+	to := time.After(time.Duration(t) * time.Second)
 	go func() {
 		for {
 			select {
-			case val := <-ch:
+			case val, ok := <-ch:
+			if !ok {
+				wg.Done()
+				return
+			}
 				fmt.Printf("Received: %d\n", val)
 			}
 		}
 	}()
 
 	// Запускаем горутину для отправки значений в канал
+	wg.Add(1)
 	go func() {
-		for i := 1; i <= 10; i++ {
-			ch <- i
-			time.Sleep(time.Second) // Ожидаем 1 секунду
-		}
-		close(ch) // Закрываем канал после отправки всех значений
-	}()
+		i := 0
+		for true {
+			select {
+				case <-to:
+					close(ch)
+					wg.Done()
+					return
+				default:
+					ch <- i
+					time.Sleep(time.Second) // Ожидаем 1 секунду
+					i++
+			}
 
-	// Ждем N секунд (в данном случае 5 секунд) перед завершением программы
-	time.Sleep(5 * time.Second)
+		}
+	}()
+		wg.Wait()
+
 }

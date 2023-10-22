@@ -17,8 +17,8 @@ func reverse(input string) string {
 	return string(runes)
 }
 
-func Exercise_19() {
-	str := "главрыба — абырвалг"
+func main() {
+	str := "главрыба"
 	reversed := reverse(str)
 	fmt.Printf("Исходная строка: %s\n", str)
 	fmt.Printf("Перевернутая строка: %s\n", reversed)

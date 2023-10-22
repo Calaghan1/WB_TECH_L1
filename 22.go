@@ -2,12 +2,17 @@
 
 package main
 
-import "fmt"
+import (
+    "fmt"
+    "math"
+)
 
-func Exercise_22() {
-    a := int64(2<<20) + 1000000 // Присваиваем значение, большее чем 2^20
+func main() {
+    fmt.Println(math.MaxInt64)
+    a := int64(2<<20) + 10000000 // Присваиваем значение, большее чем 2^20
     b := int64(2<<20) + 500000  // Присваиваем ещё одно значение, большее чем 2^20
-
+    fmt.Println(2<<20)
+    fmt.Println(a)
     // Выполняем арифметические операции
     sum := a + b
     difference := a - b

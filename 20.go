@@ -10,13 +10,13 @@ import (
 func reverseWords(input string) string {
 	words := strings.Fields(input)
 	for i := 0; i < len(words) / 2; i++ {
-		words[i], words[i - len(words)] = words[i - len(words)], words[i]
+		words[i], words[len(words) - i - 1] = words[len(words) - i - 1], words[i]
 	}
 	return strings.Join(words, " ")
 }
 
-func Exercise_20() {
-	str := "snow dog sun — sun dog snow"
+func main() {
+	str := "snow dog sun"
 	reversed := reverseWords(str)
 	fmt.Printf("Исходная строка: %s\n", str)
 	fmt.Printf("Строка с перевернутыми словами: %s\n", reversed)

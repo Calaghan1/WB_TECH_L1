@@ -37,7 +37,7 @@ func (ns *NewSystemImpl) RequestNew() string {
 	return "Новая система делает новый запрос"
 }
 
-func Exercise_21() {
+func main() {
 	newSystem := &NewSystemImpl{}
 	oldSystemAdapter := &OldSystemAdapter{}
 
