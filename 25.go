@@ -2,8 +2,9 @@
 package main
 
 import (
-	"runtime"
 	"time"
+	"os/exec"
+	"fmt"
 )
 
 func Sleep_1(d time.Duration) {
@@ -11,8 +12,13 @@ func Sleep_1(d time.Duration) {
 	<- ticker.C
 }
 
-func Exercise_25() {
-
-	runtime.Gosched()
+func Sleep_2(t int) {
+	com := exec.Command("sleep", fmt.Sprint(t))
+	com.Run()
+}
+func main() {
+	Sleep_1(3 * time.Second)
+	fmt.Println("I AM HERE ")
+	Sleep_2(13)
 }
 
