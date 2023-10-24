@@ -21,7 +21,7 @@ func NewPoint(x, y float64) Point {
 func (p Point) DistanceTo(other Point) float64 {
 	dx := p.x - other.x
 	dy := p.y - other.y
-	return math.Sqrt(dx*dx + dy*dy)
+	return math.Sqrt(dx*dx + dy*dy)// Находим гипотнезу 
 }
 
 func main() {

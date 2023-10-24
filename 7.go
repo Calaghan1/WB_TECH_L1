@@ -1,3 +1,6 @@
+// Реализовать конкурентную запись данных в map.
+
+
 package main
 
 import (
@@ -29,7 +32,7 @@ func first_7() {
 				mutex.Lock()
 				data[key] = value
 				mutex.Unlock()
-			}(i)
+			}(i) //передача i анонимную функцию
 		}
 	
 		// Ожидаем завершения всех горутин
@@ -41,7 +44,7 @@ func first_7() {
 func second_7() {
 	var m sync.Map
 	var wg sync.WaitGroup
-	writeToMap := func(key string, value int, wg *sync.WaitGroup) {
+	writeToMap := func(key string, value int, wg *sync.WaitGroup) { //ну вот так еще можно функции объявлять) 
 		defer wg.Done()
 		m.Store(key, value)
 	}
@@ -50,14 +53,13 @@ func second_7() {
 		go writeToMap(fmt.Sprintf("key%d", i), i, &wg)
 	}
 	wg.Wait()
-	m.Range(func(key, value interface{}) bool {
+	m.Range(func(key, value interface{}) bool { //Range вызывает фунцию из своего аргумепнта для каждой пары ключ значение
 		fmt.Printf("Key: %v, Value: %v\n", key, value)
 		return true // Возвращаем true, чтобы продолжить итерацию
 	})
 	
 }
 func main() {
-	// first_7()
+	first_7()
 	second_7()
-
 }

@@ -42,8 +42,6 @@ func second() { //Исползовать контекст
 		default:
 			fmt.Println("Gorutine working")
 			time.Sleep(3 * time.Second)
-			
-		
 		}
 		
 	}
@@ -69,26 +67,26 @@ func third() {
 	time.Sleep(10 * time.Second) 
 }
 
-func fourth() {
-	sigCh := make(chan os.Signal, 1)
-	signal.Notify(sigCh, os.Interrupt, syscall.SIGTERM)
-	var wg sync.WaitGroup
-	go func() {
-		wg.Add(1)
-		defer wg.Done()
-		for true {
-			select {
-				case <- sigCh: // Блок кода, выполняется, если можно прочитать из ch
-				fmt.Println("Gorutine shot down")
-					return
-			default:
-				fmt.Println("Gorutine working")
-				time.Sleep(1 * time.Second)
-			}
-		}
-	}()
-	wg.Wait()
-}
+// func fourth() {
+// 	sigCh := make(chan os.Signal, 1)
+// 	signal.Notify(sigCh, os.Interrupt, syscall.SIGTERM)
+// 	var wg sync.WaitGroup
+// 	go func() {
+// 		wg.Add(1)
+// 		defer wg.Done()
+// 		for true {
+// 			select {
+// 				case <- sigCh: // Блок кода, выполняется, если можно прочитать из ch
+// 				fmt.Println("Gorutine shot down")
+// 					return
+// 			default:
+// 				fmt.Println("Gorutine working")
+// 				time.Sleep(1 * time.Second)
+// 			}
+// 		}
+// 	}()
+// 	wg.Wait()
+// }
 
 func fifth(t time.Duration) {
 	ticker := time.NewTicker(t)
@@ -105,9 +103,10 @@ func fifth(t time.Duration) {
 	}
 }
 func main() {
-	// first()
+	first()
 	second()
-	// third()
+	third()
 	// fourth()
-	// fifth(3 * time.Second)
+	fifth(3 * time.Second)
+	
 }

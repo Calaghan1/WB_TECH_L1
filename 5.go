@@ -17,7 +17,7 @@ func main() {
 	fmt.Println("Сколько секунд работаем?")
 	fmt.Scanf("%d\n", &t)
 	wg.Add(1)
-	to := time.After(time.Duration(t) * time.Second)
+	to := time.After(time.Duration(t) * time.Second) //создаем таймер который по истечении time.Duration(t) * time.Second данного временного промежутка отправитт данные в канал 
 	go func() {
 		for {
 			select {

@@ -39,7 +39,7 @@ func (w *Worcker)listen(ch chan int, wg *sync.WaitGroup) {
 				if !ok {
 					return
 				} else {
-					fmt.Println(w.Name, data)
+					fmt.Println(w.Name, " Data: ", data)
 				}
 		}
 	}
@@ -48,15 +48,15 @@ func (w *Worcker)listen(ch chan int, wg *sync.WaitGroup) {
 func main() {
 	fmt.Println("Сколько воркеров будет работать?")
 	var worker_n int 
-	fmt.Scanf("%d", &worker_n)
+	fmt.Scanf("%d\n", &worker_n)
 	stopChan := make(chan os.Signal, 1)
-	signal.Notify(stopChan, os.Interrupt, syscall.SIGTERM)
+	signal.Notify(stopChan, os.Interrupt, syscall.SIGTERM)// при срабатывании сигналов завершения os.Interrupt syscall.SIGTERM отправляет os.Signal в канал os.Interrupt при нажатии Ctrl+C syscall.SIGTERM может быть отправлен другими процессами или сценариями для запроса завершения целевого процесса
 	var wg sync.WaitGroup
 	var i = 0
 	arr := make([]Worcker, 0, 3)
 	for i < worker_n {
 		i++
-		arr = append(arr, Worcker{"Worker"+strconv.Itoa(i)})
+		arr = append(arr, Worcker{"Worker "+strconv.Itoa(i)})
 	}
 	ch := make(chan int, 10)
 	i = 0

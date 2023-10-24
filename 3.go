@@ -1,3 +1,4 @@
+// Дана последовательность чисел: 2,4,6,8,10. Найти сумму их квадратов(22+32+42….) с использованием конкурентных вычислений.
 package main
 
 import (
@@ -8,7 +9,7 @@ import (
 func calculateSquare(num int, wg *sync.WaitGroup, sum *int, m *sync.Mutex) {
 	defer wg.Done()
 	square := num * num
-	m.Lock()
+	m.Lock() //убедился что без мьютекса результат не стабильный видимо когда горутины пытаются записать значения в переменную конкурентно проихсодит конфликт. состоянию гонки race condition
 	*sum += square
 	m.Unlock()
 }
