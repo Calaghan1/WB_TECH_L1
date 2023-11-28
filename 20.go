@@ -16,7 +16,7 @@ func reverseWords(input string) string {
 }
 
 func main() {
-	str := "snow dog sun"
+	str := "snow dog  sun"
 	reversed := reverseWords(str)
 	fmt.Printf("Исходная строка: %s\n", str)
 	fmt.Printf("Строка с перевернутыми словами: %s\n", reversed)

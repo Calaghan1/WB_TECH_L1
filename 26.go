@@ -34,7 +34,7 @@ func areAllCharactersUnique(s string) bool {
 	return true
 }
 
-func Exercise_26() {
+func main() {
 	fmt.Println(areAllCharactersUnique("abcd"))      // true
 	fmt.Println(areAllCharactersUnique("abCdefAaf")) // false
 	fmt.Println(areAllCharactersUnique("aabcd"))     // false
