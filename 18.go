@@ -15,7 +15,6 @@ type counter struct {
 
 func foo_18(c *counter, n int, wg *sync.WaitGroup) {
 	i := 0
-	wg.Add(1)
 	defer wg.Done()
 	for i < 10 {
 		c.mu.Lock()
@@ -32,6 +31,7 @@ func main() {
 	var wg sync.WaitGroup
 	c := counter{}
 	for i < 4 {
+		wg.Add(1)
 		go foo_18(&c, i, &wg)
 		i++
 	}

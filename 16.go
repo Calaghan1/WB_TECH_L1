@@ -42,64 +42,11 @@ func quickSort(arr []int) []int { //
 
 
 
-// func partition(arr []int, low, high int) int {
-// 	pivot := arr[high]
-// 	i := low - 1
-
-// 	for j := low; j <= high-1; j++ {
-// 		if arr[j] < pivot {
-// 			i++
-// 			arr[i], arr[j] = arr[j], arr[i]
-// 		}
-// 	}
-
-// 	arr[i+1], arr[high] = arr[high], arr[i+1]
-// 	return i + 1
-// }
-
-// func quickSort_it(arr []int) {
-// 	stack := []int{}
-// 	low := 0
-// 	high := len(arr) - 1
-
-// 	stack = append(stack, low)
-// 	stack = append(stack, high)
-
-// 	for len(stack) > 0 {
-// 		high = stack[len(stack)-1]
-// 		stack = stack[:len(stack)-1]
-// 		low = stack[len(stack)-1]
-// 		stack = stack[:len(stack)-1]
-
-// 		pivot := partition(arr, low, high)
-
-// 		if pivot-1 > low {
-// 			stack = append(stack, low)
-// 			stack = append(stack, pivot-1)
-// 		}
-
-// 		if pivot+1 < high {
-// 			stack = append(stack, pivot+1)
-// 			stack = append(stack, high)
-// 		}
-// 	}
-// }
-
-
 func main() {
 	// Создаем срез с неотсортированными целыми числами
 	nums := []int{4, 2, 7, 1, 9, 3, 5, 6, 8}
 
-	// Используем функцию sort.Ints для сортировки среза
 	sort.Ints(nums)
-		// func Sort(data Interface) {
-	// 	n := data.Len()
-	// 	if n <= 1 {
-	// 		return
-	// 	}
-	// 	limit := bits.Len(uint(n))
-	// 	pdqsort(data, 0, n, limit) quicksort в го
-	// }
 	fmt.Println(nums)
 
 	

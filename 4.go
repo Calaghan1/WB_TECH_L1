@@ -31,7 +31,6 @@ type Worcker struct {
 	Name string
 } 
 func (w *Worcker)listen(ch chan int, wg *sync.WaitGroup) {
-	wg.Add(1)
 	defer wg.Done()
 	for true {
 		select {
@@ -48,7 +47,8 @@ func (w *Worcker)listen(ch chan int, wg *sync.WaitGroup) {
 func main() {
 	fmt.Println("Сколько воркеров будет работать?")
 	var worker_n int 
-	fmt.Scanf("%d\n", &worker_n)
+	fmt.Scan(&worker_n)
+	fmt.Println(worker_n)
 	stopChan := make(chan os.Signal, 1)
 	signal.Notify(stopChan, os.Interrupt, syscall.SIGTERM)// при срабатывании сигналов завершения os.Interrupt syscall.SIGTERM отправляет os.Signal в канал os.Interrupt при нажатии Ctrl+C syscall.SIGTERM может быть отправлен другими процессами или сценариями для запроса завершения целевого процесса
 	var wg sync.WaitGroup
@@ -61,6 +61,7 @@ func main() {
 	ch := make(chan int, 10)
 	i = 0
 	for i < len(arr) {
+		wg.Add(1)
 		go arr[i].listen(ch, &wg)
 		i ++
 	}

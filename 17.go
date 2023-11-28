@@ -31,7 +31,7 @@ func main() {
 	nums := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
 
 	// Выполняем бинарный поиск значения 5
-	target := 678
+	target := 6
 	index := sort.SearchInts(nums, target) // если не найдет возращает len(nums) + 1
 	fmt.Println(index)
 	// Проверяем результат бинарного поиска

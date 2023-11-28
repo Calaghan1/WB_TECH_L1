@@ -1,9 +1,7 @@
 // Поменять местами два числа без создания временной переменной.
 package main
 import "fmt"
-func swap(a, b int) (int, int) {
-    return b, a
-}
+
 
 
 
@@ -11,7 +9,7 @@ func main() {
 	a := 5
 	b := 10
 
-	a = a + b // Первый способ чисто математический 3 + 2 = 6   6 - 2 = 3 	6 - 3 = 2
+	a = a + b // Первый способ чисто математический 3 + 2 = 6   6 - 2 = 3 	6 - 3 = 2 работает с целыми числами
 	b = a - b
 	a = a - b
 
@@ -48,9 +46,4 @@ fmt.Println("a:", a)
 fmt.Println("b:", b)
 
 
-a = 5
-b = 10
-a, b = swap(a, b)
-fmt.Println("a:", a)
-fmt.Println("b:", b)
 }
